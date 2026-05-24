@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body>
+<p id="msg">Chargement Firebase...</p>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script>
+  try {
+    firebase.initializeApp({
+      apiKey: "AIzaSyABM-BetXSXu2hpyLAtYR7qiJeTvDisnxM",
+      authDomain: "stockbadge-5b99e.firebaseapp.com",
+      projectId: "stockbadge-5b99e"
+    });
+    firebase.auth().onAuthStateChanged(function(user) {
+      document.getElementById('msg').textContent = user ? 'Connecté !' : 'Firebase OK - non connecté';
+    });
+  } catch(e) {
+    document.getElementById('msg').textContent = 'ERREUR: ' + e.message;
+  }
+</script>
+</body>
+</html>
